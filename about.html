@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>About Us</title>
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+header {
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+nav li {
+	float: left;
+}
+
+nav li a {
+	display: block;
+	color: #fff;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+nav li a:hover {
+	background-color: #4CAF50;
+}
+
+section {
+	padding: 20px;
+}
+
+h1, h2 {
+	text-align: center;
+}
+
+h2 {
+	margin-top: 30px;
+}
+
+footer {
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	padding: 10px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+
+</style>
+<script>
+// Get the "About Us" section
+const aboutSection = document.querySelector('section');
+
+// Add a class to the section
+aboutSection.classList.add('about');
+
+// Get the "Our Mission" section
+const missionSection = document.querySelector('h2:nth-of-type(1)');
+
+// Add a click event listener to the section
+missionSection.addEventListener('click', () => {
+  // Toggle the visibility of the paragraph
+  const missionParagraph = missionSection.nextElementSibling;
+  missionParagraph.classList.toggle('hidden');
+});
+
+// Get the "Our Team" section
+const teamSection = document.querySelector('h2:nth-of-type(2)');
+
+// Create an array of team member objects
+const teamMembers = [
+  {
+    name: 'John Smith',
+    role: 'Marketing Manager',
+    bio: 'John has over 10 years of experience in marketing and branding. He has worked with both small startups and large corporations, and has a passion for helping businesses succeed.'
+  },
+  {
+    name: 'Jane Doe',
+    role: 'Lead Developer',
+    bio: 'Jane is a highly skilled developer with expertise in multiple programming languages. She has led the development of several successful projects and enjoys solving complex problems.'
+  },
+  {
+    name: 'Bob Johnson',
+    role: 'Creative Director',
+    bio: 'Bob is an experienced designer with a keen eye for aesthetics. He has worked on a wide range of projects, from print design to web design, and always strives for excellence.'
+  }
+];
+
+// Loop through the team members and add them to the page
+teamMembers.forEach(member => {
+  // Create a div for the team member
+  const memberDiv = document.createElement('div');
+  memberDiv.classList.add('team-member');
+
+  // Create an h3 for the team member's name
+  const memberName = document.createElement('h3');
+  memberName.textContent = member.name;
+  memberDiv.appendChild(memberName);
+
+  // Create a p for the team member's role
+  const memberRole = document.createElement('p');
+  memberRole.classList.add('role');
+  memberRole.textContent = member.role;
+  memberDiv.appendChild(memberRole);
+
+  // Create a p for the team member's bio
+  const memberBio = document.createElement('p');
+  memberBio.classList.add('bio');
+  memberBio.textContent = member.bio;
+  memberDiv.appendChild(memberBio);
+
+  // Add the team member to the page
+  teamSection.insertAdjacentElement('afterend', memberDiv);
+});
+
+</script>
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="about.html">About Us</a></li>
+              </ul>
+		</nav>
+	</header>
+
+	<section>
+		<h1>About Us</h1>
+		<p>ur webpage is designed to be user-friendly and accessible to a wide range of users, allowing them to easily access real-time weather information and forecast updates. We believe that our webpage is an essential tool for anyone who needs to stay informed about weather conditions, whether it be for outdoor activities, travel, or safety purposes.</p>
+
+		<h2>Our Mission</h2>
+		<p>our weather prediction webpage provides accurate and up-to-date weather information to users across the globe. By utilizing advanced technology, machine learning algorithms, and meteorological data sources, we are able to generate precise forecasts that help individuals and organizations make informed decisions about their daily activities.
+</p>
+
+		<h2>Our Team</h2>
+		<p>Our team is made up of experts in various fields, including marketing, design, development, and more. Together, we work to provide comprehensive solutions to our clients.</p>
+	</section>
+
+	<footer>
+		<p>Copyright &copy; 2023</p>
+	</footer>
+</body>
+</html>

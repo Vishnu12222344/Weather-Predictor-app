@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random Temperature Prediction</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<style>
+body {
+	background-image: url('https://static.toiimg.com/img/66084423/Master.jpg');
+	background-size: cover;
+	background-position: center;
+	font-family: Arial, sans-serif;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+}
+footer p{
+	display: flex;
+	justify-content: center;
+}
+
+nav {
+	background-color: #333;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+nav .container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+nav a.logo {
+	color: #fff;
+	font-size: 32px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+nav ul li {
+	margin-left: 20px;
+}
+
+nav ul li:first-child {
+	margin-left: 0;
+}
+
+nav ul li a {
+	color: #fff;
+	font-size: 24px;
+	text-decoration: none;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+	color: #ff0;
+}
+
+.container {
+	max-width: 800px;
+	margin: 100px auto 0;
+	padding: 50px;
+	text-align: center;
+}
+
+h1 {
+	font-size: 48px;
+	margin-bottom: 20px;
+}
+
+p {
+	font-size: 24px;
+	margin-bottom: 50px;
+}
+
+form {
+	margin-bottom: 30px;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+	font-size: 24px;
+}
+
+input {
+	padding: 10px;
+	font-size: 24px;
+	border: none;
+	border-radius: 5px;
+}
+
+button {
+	background-color: #fff;
+	color: #333;
+	padding: 15px 30px;
+	font-size: 24px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 20px;
+}
+
+button:hover {
+	background-color: #333;
+	color: #fff;
+}
+
+#weather-img {
+	max-width: 200px;
+	margin-bottom: 20px;
+}
+
+em {
+	font-size: 20px;
+	margin-top: 50px;
+	display
+}
+</style>
+<body>
+	<nav>
+		<div class="container">
+			<a href="#" class="logo">WeatherPredictor</a>
+			<ul>
+				<li><a href="#" class="active"></a></li>
+				<li><a href="about.html"></a></li>
+				<li><a href="contactus.html">Contact</a></li>
+			</ul>
+		</div>
+	</nav>
+	<main>
+	<div class="container">
+		<h1>WEATHER PREDICTOR</h1>
+		<form onsubmit="generateTemperature(event)">
+			<label for="location">Enter your location:</label>
+			<input type="text" id="location" name="location">
+			<button type="submit">Predict Temperature</button>
+		</form>
+		<p><img id="weather-img" src="" alt=""> Today's temperature is : <span id="temperature"></span> &#8451;</p>
+		<p><em><span id="quote"></span></em></p>
+	</div>
+</main>
+	<script>
+		const quotes = [
+	"Keep your face always toward the sunshine - and shadows will fall behind you. -Walt Whitman",
+	"Sunshine is delicious, rain is refreshing, wind braces us up, snow is exhilarating; there is really no such thing as bad weather, only different kinds of good weather. -John Ruskin",
+	"The best thing one can do when it's raining is to let it rain. -Henry Wadsworth Longfellow",
+	"Climate is what we expect, weather is what we get. -Mark Twain",
+	"There's no such thing as bad weather, only unsuitable clothing. -Alfred Wainwright",
+	"To appreciate the beauty of a snowflake it is necessary to stand out in the cold. -Aristotle",
+	"Bad weather always looks worse through a window. -Tom Lehrer",
+	"The sun did not shine. It was too wet to play. So we sat in the house. All that cold, cold, wet day. -Dr. Seuss",
+	"A cloudy day is no match for a sunny disposition. -William Arthur Ward",
+	"The sun is a daily reminder that we too can rise again from the darkness, that we too can shine our own light. -S. Ajna"
+];
+
+function generateTemperature(event) {
+	event.preventDefault();
+	const locationInput = document.getElementById("location");
+	const temperatureOutput = document.getElementById("temperature");
+	const weatherImage = document.getElementById("weather-img");
+	const randomNumber = Math.floor(Math.random() * 6) + 25;
+	temperatureOutput.innerHTML = randomNumber;
+	// if (randomNumber < 28) {
+	// 	weatherImage.setAttribute("src", "https://upload.wikimedia.org/wikipedia/commons/e/ea/Spring_Lake%2C_New_Jersey_Beach_at_Sunrise.jpg");
+	// 	weatherImage.setAttribute("alt", "Cloudy Weather");
+	// } else {
+	// 	weatherImage.setAttribute("src", "https://upload.wikimedia.org/wikipedia/commons/e/ea/Spring_Lake%2C_New_Jersey_Beach_at_Sunrise.jpg");
+	// 	weatherImage.setAttribute("alt", "Sunny Weather");
+	// }
+	const quoteOutput = document.getElementById("quote");
+	const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+	quoteOutput.innerHTML = randomQuote;
+}
+
+const navbarLinks = document.querySelectorAll("nav ul li a");
+
+navbarLinks.forEach(link => {
+	link.addEventListener("click", () => {
+		navbarLinks.forEach(link => link.classList.remove("active"));
+		link.classList.add("active");
+	});
+});
+
+	</script>
+	<footer>
+		<p>WeatherPredictor.com</p>
+	</footer>
+</body>
+</html>
